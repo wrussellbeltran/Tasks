@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-10 col-lg-8">
+			<div class="card-body">
+
+				<div class="d-flex justify-content-start">
+					<h2 class="display-5 text-info">Responsables</h2>
+				</div>
+
+				<hr>
+
+				<div class="d-flex justify-content-end">
+					<a class="btn btn-primary" routerLink="/create-responsible" role="button"><i class="fa fa-plus"></i> Nuevo Responsable</a>
+				</div>
+
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col">Id</th>
+				      <th scope="col">Nombre</th>
+				      <th scope="col"></th>
+				    </tr>
+				  </thead>
+				  <tbody *ngFor="let responsable of responsible">
+				    <tr>
+				      <td>{{ responsable.id }}</td>
+				      <td>{{ responsable.name }}</td>
+				      <td class="d-flex justify-content-end">
+				      	<a class="btn btn-warning btn-sm m-1" routerLink="/edit-responsible/ {{ responsable.id}}" role="button"><i class="fa fa-edit"></i></a>
+				      	</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

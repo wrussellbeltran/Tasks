@@ -1,0 +1,43 @@
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-12 col-lg-9">
+			<div class="card-body">
+
+				<div class="d-flex justify-content-start">
+					<h2 class="display-5 text-info">Sub Tareas</h2>
+				</div>
+
+				<hr>
+
+				<div class="d-flex justify-content-end">
+					<a class="btn btn-primary" routerLink="/create-sub_task" role="button"><i class="fa fa-plus"></i> Nueva Sub Tarea</a>
+				</div>
+
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col" hidden>Id</th>
+				      <th scope="col">Titulo</th>
+				      <th scope="col">Tarea</th>
+				      <th scope="col">Responsable</th>
+				      <th scope="col">Fecha Vencimiento</th>
+				      <th scope="col"></th>
+				    </tr>
+				  </thead>
+				  <tbody *ngFor="let subtask of subtasks">
+				    <tr>
+				      <td hidden>{{ subtask.id }}</td>
+				      <td>{{ subtask.name }}</td>
+				      <td>{{ subtask.tasks.name }}</td>
+				      <td>{{ subtask.responsible.name }}</td>
+				      <td>{{ subtask.expiration_date | date: 'dd-MM-yyyy' }}</td>
+				      <td class="d-flex justify-content-end">
+				      	<a class="btn btn-warning btn-sm m-1" routerLink="/edit-sub_task/ {{ subtask.id}}" role="button"><i class="fa fa-edit"></i></a>
+				      	</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

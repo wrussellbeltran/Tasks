@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-12 col-sm-10 col-md-8 col-lg-6">
+			<div class="card-body">
+				<form (ngSubmit)="onSubmit(responsableForm)" #responsableForm="ngForm">
+					<div class="d-flex justify-content-start">
+						<h2 class="display-5 text-info">{{ page_title }}</h2>
+					</div>
+
+					<hr>
+
+					<div class="form-group">
+					    <label for="name" class="font-weight-bold">Nombre</label>
+					    <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="responsable.name" placeholder="Nombre del responsable" required>
+					    <span *ngIf="!responsable.valid && responsable.touched" class="text-danger">El responsable no es válido</span>
+					</div>
+
+				  	<div class="form-group">
+	                    <button type="submit" class="btn btn-primary" [disabled]="!responsableForm.valid">
+	                        Guardar
+	                    </button>
+	                    <a class="btn btn-link" routerLink="/responsibles">Ir al listado</a>
+	                </div>
+
+			  		<div class="mt-3">
+				  		<div class="alert alert-success" *ngIf="status == 'success'" >
+					    	Responsable generado !!
+					 	</div>
+
+						<div class="alert alert-danger" *ngIf="status == 'error'" >
+						    No se pudo generar el responsable !!
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

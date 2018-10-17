@@ -1,0 +1,47 @@
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-12 col-lg-9">
+			<div class="card-body">
+
+				<div class="d-flex justify-content-start">
+					<h2 class="display-5 text-info">Tareas</h2>
+				</div>
+
+				<hr>
+
+				<div class="d-flex justify-content-end">
+					<a class="btn btn-primary" routerLink="/create-task" role="button"><i class="fa fa-plus"></i> Nueva Tarea</a>
+				</div>
+
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col" hidden>Id</th>
+				      <th scope="col">Titulo</th>
+				      <th scope="col">Responsable</th>
+				      <th scope="col">Fecha Inicio</th>
+				      <th scope="col">Fecha Fin</th>
+				      <th scope="col">Porcentaje de Avance</th>
+				      <th scope="col">Categoría</th>
+				      <th scope="col"></th>
+				    </tr>
+				  </thead>
+				  <tbody *ngFor="let task of tasks">
+				    <tr>
+				      <td hidden>{{ task.id }}</td>
+				      <td>{{ task.name }}</td>
+				      <td>{{ task.responsible.name }}</td>
+				      <td>{{ task.star_date | date }}</td>
+				      <td>{{ task.end_date | date }}</td>
+				      <td>{{ task.advance }} %</td>
+				      <td>{{ task.category }}</td>
+				      <td class="d-flex justify-content-end">
+				      	<a class="btn btn-warning btn-sm m-1" routerLink="/edit-task/ {{ task.id}}" role="button"><i class="fa fa-edit"></i></a>
+				      </td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

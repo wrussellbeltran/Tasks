@@ -1,0 +1,60 @@
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-12 col-sm-10 col-md-8 col-lg-6 p-5">
+			<div class="card-body">
+
+				<div class="d-flex justify-content-start">
+					<h2 class="display-5 text-info">Consultas</h2>
+				</div>
+
+				<hr>
+
+				<div>
+					<label for="id" class="font-weight-bold">Responsable:</label>
+					<select class="form-control" id="id" name="id" #id="ngModel" [(ngModel)]="responsable.id">
+					  <option *ngFor="let responsable of responsible" [value]="responsable.id">{{ responsable.name }}</option>
+					</select>
+					<span class="input-group-btn">
+				      <button class="btn btn-info btn-sm m-1" type="button" (click)="searchResponsable(responsable.id)">
+				        <i class="fa fa-search"></i>
+				      </button>
+				    </span>
+				</div>
+
+				<div>
+				    <label for="star_date" class="font-weight-bold">Fecha Inicio:</label>
+				      <div class="input-group date fj-date" data-provide="datepicker">
+				        <input type="date" class="form-control" id="star_date" name="star_date" #star_date="ngModel" [(ngModel)]="dateStar">
+				      </div>
+				</div>
+
+				<div>
+				    <label for="end_date" class="font-weight-bold">Fecha Fin:</label>
+				      <div class="input-group date fj-date" data-provide="datepicker">
+				        <input type="date" class="form-control" id="end_date" name="end_date" #end_date="ngModel" [(ngModel)]="dateEnd">
+				    </div>
+				    <span class="input-group-btn">
+				      <button class="btn btn-info btn-sm m-1" type="button" (click)="searchDate()">
+				        <i class="fa fa-search"></i>
+				      </button>
+				    </span>
+				</div>
+				
+				<br>
+
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col">Tarea</th>
+				    </tr>
+				  </thead>
+				  <tbody *ngFor="let task of tasks">
+				    <tr>
+				      <td>{{task.name}}</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
